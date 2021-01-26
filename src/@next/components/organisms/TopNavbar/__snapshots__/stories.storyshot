@@ -95,7 +95,7 @@ exports[`Storyshots @components/organisms/TopNavbar default 1`] = `
 }
 
 .c8 svg {
-  width: 6rem;
+  width: 8rem;
 }
 
 .c10 {

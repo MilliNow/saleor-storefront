@@ -40,7 +40,7 @@ export const LogoWrapper = styled(ReactSVG)`
   line-height: 0;
 
   svg {
-    width: 6rem;
+    width: 8rem;
 
     ${media.largeScreen`
       width: 4rem;

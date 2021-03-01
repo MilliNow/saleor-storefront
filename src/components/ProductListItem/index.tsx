@@ -3,6 +3,7 @@ import "./scss/index.scss";
 import isEqual from "lodash/isEqual";
 import * as React from "react";
 
+import { useAuth } from "@saleor/sdk";
 import { Thumbnail } from "@components/molecules";
 
 import { TaxedMoney } from "../../@next/components/containers";
@@ -18,6 +19,12 @@ const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {
   const priceUndiscounted = product.pricing?.priceRangeUndiscounted?.start;
 
   const getProductPrice = () => {
+    // OLIVELAND: Remove pricing if user is admin
+    const { user } = useAuth();
+    if (!user || !user.isStaff) {
+      return <></>;
+    }
+
     if (isEqual(price, priceUndiscounted)) {
       return <TaxedMoney taxedMoney={price} />;
     }

@@ -4,6 +4,7 @@ import {
   ProductDetails_product_variants_pricing,
   ProductDetails_product_pricing,
 } from "@saleor/sdk/lib/queries/gqlTypes/ProductDetails";
+import { useAuth } from "@saleor/sdk";
 import { isEqual } from "lodash";
 import { TaxedMoney } from "../../containers";
 
@@ -17,6 +18,12 @@ export const getProductPrice = (
   productPricingRange: ProductDetails_product_pricing,
   variantPricing?: ProductDetails_product_variants_pricing | null
 ) => {
+  // OLIVELAND: Remove pricing if user is admin
+  const { user } = useAuth();
+  if (!user || !user.isStaff) {
+    return <></>;
+  }
+
   if (variantPricing) {
     if (isEqual(variantPricing.priceUndiscounted, variantPricing.price)) {
       return <TaxedMoney taxedMoney={variantPricing.price} />;

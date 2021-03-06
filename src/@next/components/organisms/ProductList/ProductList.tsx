@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useCart } from "@saleor/sdk";
 import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 import { Button, Loader } from "@components/atoms";
 import { ProductTile } from "@components/molecules";
@@ -37,10 +38,24 @@ export const ProductList: React.FC<IProps> = ({
               variant.quantityAvailable - (cartItem?.quantity || 0);
 
             const [variantStock, setVariantStock] = useState<number>(remaining);
-
+            const alert = useAlert();
             const handleAddToCart = (variantId: string) => {
               setVariantStock(variantStock - 1);
-              addItem(variantId, 1);
+              addItem(variantId, 1).then(r => {
+                alert.remove(alert.alerts?.[0]);
+                alert.show(
+                  {
+                    content: `You have ${
+                      cartItem?.quantity || 1
+                    } of this item in your cart`,
+                    title: `${name} added to cart!`,
+                  },
+                  {
+                    timeout: 3000,
+                    type: "success",
+                  }
+                );
+              });
             };
 
             const disableButton = !canAddToCart(

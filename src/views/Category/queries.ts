@@ -60,6 +60,7 @@ export const categoryProductsQuery = gql`
   ${productPricingFragment}
   query CategoryProducts(
     $id: ID!
+    $countryCode: CountryCode
     $attributes: [AttributeInput]
     $after: String
     $pageSize: Int

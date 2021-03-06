@@ -3,6 +3,7 @@
 // This file was automatically generated and should not be edited.
 
 import { AttributeInput, ProductOrder } from "./../../../../gqlTypes/globalTypes";
+import { CountryCode } from "@saleor/sdk/lib/gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL query operation: CategoryProducts
@@ -293,6 +294,7 @@ export interface CategoryProducts {
 
 export interface CategoryProductsVariables {
   id: string;
+  countryCode?: CountryCode | null;
   attributes?: (AttributeInput | null)[] | null;
   after?: string | null;
   pageSize?: number | null;

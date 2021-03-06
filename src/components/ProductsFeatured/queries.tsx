@@ -10,7 +10,7 @@ import { FeaturedProducts } from "./gqlTypes/FeaturedProducts";
 export const featuredProducts = gql`
   ${basicProductFragment}
   ${productPricingFragment}
-  query FeaturedProducts {
+  query FeaturedProducts($countryCode: CountryCode) {
     shop {
       homepageCollection {
         id

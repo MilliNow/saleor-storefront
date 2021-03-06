@@ -22,6 +22,31 @@ export const ProductList: React.FC<IProps> = ({
   testingContextId,
   onLoadMore = () => null,
 }: IProps) => {
+  const { items, addItem } = useCart();
+  const alert = useAlert();
+
+  const [variantStock, setVariantStock] = useState<number>(0);
+  const handleAddToCart = (
+    variantId: string,
+    variantName: string,
+    cartQuantity: number
+  ) => {
+    setVariantStock(variantStock - 1);
+    addItem(variantId, 1).then(r => {
+      alert.remove(alert.alerts?.[0]);
+      alert.show(
+        {
+          content: `You have ${cartQuantity + 1} of this item in your cart`,
+          title: `${variantName} added to cart!`,
+        },
+        {
+          timeout: 2000,
+          type: "success",
+        }
+      );
+    });
+  };
+
   return (
     <>
       <S.List data-test="productList" data-test-id={testingContextId}>
@@ -30,39 +55,14 @@ export const ProductList: React.FC<IProps> = ({
           const variant = product.variants?.[0];
 
           if (variant) {
-            const { items, addItem } = useCart();
-            const cartItem = items?.find(
-              item => item.variant.id === variant.id
-            );
-            const remaining =
-              variant.quantityAvailable - (cartItem?.quantity || 0);
-
-            const [variantStock, setVariantStock] = useState<number>(remaining);
-            const alert = useAlert();
-            const handleAddToCart = (variantId: string) => {
-              setVariantStock(variantStock - 1);
-              addItem(variantId, 1).then(r => {
-                alert.remove(alert.alerts?.[0]);
-                alert.show(
-                  {
-                    content: `You have ${
-                      cartItem?.quantity || 1
-                    } of this item in your cart`,
-                    title: `${name} added to cart!`,
-                  },
-                  {
-                    timeout: 3000,
-                    type: "success",
-                  }
-                );
-              });
-            };
+            const cartItem = items?.find(i => i.variant.id === variant.id);
+            const cartQuantity = cartItem?.quantity || 0;
 
             const disableButton = !canAddToCart(
               [],
               !!product.isAvailableForPurchase,
               variant.id,
-              remaining,
+              variant.quantityAvailable - cartQuantity,
               1
             );
 
@@ -74,7 +74,9 @@ export const ProductList: React.FC<IProps> = ({
                     <ProductTile product={product} />
                   </Link>
                   <AddToCartButton
-                    onSubmit={() => handleAddToCart(variant.id)}
+                    onSubmit={() =>
+                      handleAddToCart(variant.id, name, cartQuantity)
+                    }
                     disabled={disableButton}
                   />
                 </div>

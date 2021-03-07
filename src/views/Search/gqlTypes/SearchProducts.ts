@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { AttributeInput, ProductOrder } from "./../../../../gqlTypes/globalTypes";
@@ -338,6 +339,7 @@ export interface SearchProducts {
 
 export interface SearchProductsVariables {
   query: string;
+  channel: string;
   attributes?: (AttributeInput | null)[] | null;
   pageSize?: number | null;
   sortBy?: ProductOrder | null;

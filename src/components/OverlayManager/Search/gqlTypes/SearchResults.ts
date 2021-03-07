@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -99,4 +100,5 @@ export interface SearchResults {
 
 export interface SearchResultsVariables {
   query: string;
+  channel?: string | null;
 }

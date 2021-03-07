@@ -1,14 +1,23 @@
+import { useAuth, useCart } from "@saleor/sdk";
+import classNames from "classnames";
+import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { commonMessages } from "@temp/intl";
-import { useAuth, useCart } from "@saleor/sdk";
-
 import Media from "react-media";
-import { Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import { DemoBanner } from "@components/atoms";
-import classNames from "classnames";
+import { paths } from "@paths";
+import { channelSlug } from "@temp/constants";
+import { commonMessages } from "@temp/intl";
+
+import { maybe } from "../../core/utils";
+import cartImg from "../../images/cart.svg";
+import hamburgerImg from "../../images/hamburger.svg";
+import hamburgerHoverImg from "../../images/hamburger-hover.svg";
+import logoImg from "../../images/logo.svg";
+import searchImg from "../../images/search.svg";
+import userImg from "../../images/user.svg";
 import {
   MenuDropdown,
   Offline,
@@ -17,22 +26,14 @@ import {
   OverlayTheme,
   OverlayType,
 } from "..";
-import * as appPaths from "../../app/routes";
-import { maybe } from "../../core/utils";
 import NavDropdown from "./NavDropdown";
 import { TypedMainMenuQuery } from "./queries";
 
-import cartImg from "../../images/cart.svg";
-import hamburgerHoverImg from "../../images/hamburger-hover.svg";
-import hamburgerImg from "../../images/hamburger.svg";
-import logoImg from "../../images/logo.svg";
-import searchImg from "../../images/search.svg";
-import userImg from "../../images/user.svg";
+import "./scss/index.scss";
 import {
   mediumScreen,
   smallScreen,
 } from "../../globalStyles/scss/variables.scss";
-import "./scss/index.scss";
 
 interface MainMenuProps {
   demoMode: boolean;
@@ -84,9 +85,16 @@ const MainMenu: React.FC<MainMenuProps> = ({ demoMode }) => {
       {demoMode && <DemoBanner />}
       <nav className="main-menu" id="header">
         <div className="main-menu__left">
-          <TypedMainMenuQuery renderOnError displayLoader={false}>
+          <TypedMainMenuQuery
+            renderOnError
+            displayLoader={false}
+            variables={{
+              channel: channelSlug,
+              slug: "navbar",
+            }}
+          >
             {({ data }) => {
-              const items = maybe(() => data.shop.navigation.main.items, []);
+              const items = maybe(() => data.menu.items, []);
 
               return (
                 <ul>
@@ -158,24 +166,30 @@ const MainMenu: React.FC<MainMenuProps> = ({ demoMode }) => {
                               content={
                                 <ul className="main-menu__dropdown">
                                   <li data-test="mobileMenuMyAccountLink">
-                                    <Link to={appPaths.accountUrl}>
-                                      <FormattedMessage
-                                        {...commonMessages.myAccount}
-                                      />
+                                    <Link href={paths.account}>
+                                      <a>
+                                        <FormattedMessage
+                                          {...commonMessages.myAccount}
+                                        />
+                                      </a>
                                     </Link>
                                   </li>
                                   <li data-test="mobileMenuOrderHistoryLink">
-                                    <Link to={appPaths.orderHistoryUrl}>
-                                      <FormattedMessage
-                                        {...commonMessages.orderHistory}
-                                      />
+                                    <Link href={paths.accountOrderHistory}>
+                                      <a>
+                                        <FormattedMessage
+                                          {...commonMessages.orderHistory}
+                                        />
+                                      </a>
                                     </Link>
                                   </li>
                                   <li data-test="mobileMenuAddressBookLink">
-                                    <Link to={appPaths.addressBookUrl}>
-                                      <FormattedMessage
-                                        {...commonMessages.addressBook}
-                                      />
+                                    <Link href={paths.accountAddressBook}>
+                                      <a>
+                                        <FormattedMessage
+                                          {...commonMessages.addressBook}
+                                        />
+                                      </a>
                                     </Link>
                                   </li>
                                   <li
@@ -214,8 +228,10 @@ const MainMenu: React.FC<MainMenuProps> = ({ demoMode }) => {
         </div>
 
         <div className="main-menu__center">
-          <Link to={appPaths.baseUrl}>
-            <ReactSVG path={logoImg} />
+          <Link href={paths.home}>
+            <a>
+              <ReactSVG path={logoImg} />
+            </a>
           </Link>
         </div>
 
@@ -236,24 +252,30 @@ const MainMenu: React.FC<MainMenuProps> = ({ demoMode }) => {
                         content={
                           <ul className="main-menu__dropdown">
                             <li data-test="desktopMenuMyAccountLink">
-                              <Link to={appPaths.accountUrl}>
-                                <FormattedMessage
-                                  {...commonMessages.myAccount}
-                                />
+                              <Link href={paths.account}>
+                                <a>
+                                  <FormattedMessage
+                                    {...commonMessages.myAccount}
+                                  />
+                                </a>
                               </Link>
                             </li>
                             <li data-test="desktopMenuOrderHistoryLink">
-                              <Link to={appPaths.orderHistoryUrl}>
-                                <FormattedMessage
-                                  {...commonMessages.orderHistory}
-                                />
+                              <Link href={paths.accountOrderHistory}>
+                                <a>
+                                  <FormattedMessage
+                                    {...commonMessages.orderHistory}
+                                  />
+                                </a>
                               </Link>
                             </li>
                             <li data-test="desktopMenuAddressBookLink">
-                              <Link to={appPaths.addressBookUrl}>
-                                <FormattedMessage
-                                  {...commonMessages.addressBook}
-                                />
+                              <Link href={paths.accountAddressBook}>
+                                <a>
+                                  <FormattedMessage
+                                    {...commonMessages.addressBook}
+                                  />
+                                </a>
                               </Link>
                             </li>
                             <li

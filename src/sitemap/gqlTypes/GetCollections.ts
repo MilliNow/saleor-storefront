@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -54,4 +55,5 @@ export interface GetCollections {
 export interface GetCollectionsVariables {
   cursor?: string | null;
   perPage?: number | null;
+  channel?: string | null;
 }

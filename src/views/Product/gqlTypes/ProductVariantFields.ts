@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -159,10 +160,6 @@ export interface ProductVariantFields {
   id: string;
   sku: string;
   name: string;
-  /**
-   * Whether the variant is in stock and visible or not.
-   */
-  isAvailable: boolean | null;
   /**
    * Quantity of a product available for sale in one checkout.
    */

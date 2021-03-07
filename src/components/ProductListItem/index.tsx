@@ -1,5 +1,3 @@
-import "./scss/index.scss";
-
 import isEqual from "lodash/isEqual";
 import * as React from "react";
 
@@ -7,10 +5,12 @@ import { useAuth } from "@saleor/sdk";
 import { Thumbnail } from "@components/molecules";
 
 import { TaxedMoney } from "../../@next/components/containers";
-import { FeaturedProducts_shop_homepageCollection_products_edges_node } from "../ProductsFeatured/gqlTypes/FeaturedProducts";
+import { FeaturedProducts_collection_products_edges_node } from "../ProductsFeatured/gqlTypes/FeaturedProducts";
+
+import "./scss/index.scss";
 
 interface ProductListItemProps {
-  product: FeaturedProducts_shop_homepageCollection_products_edges_node;
+  product: FeaturedProducts_collection_products_edges_node;
 }
 
 const ProductListItem: React.FC<ProductListItemProps> = ({ product }) => {

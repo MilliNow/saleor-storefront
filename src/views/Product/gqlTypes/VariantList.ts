@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 import { CountryCode } from "./../../../../gqlTypes/globalTypes";
@@ -199,10 +200,6 @@ export interface VariantList_productVariants_edges_node {
   sku: string;
   name: string;
   /**
-   * Whether the variant is in stock and visible or not.
-   */
-  isAvailable: boolean | null;
-  /**
    * Quantity of a product available for sale in one checkout.
    */
   quantityAvailable: number;
@@ -243,5 +240,6 @@ export interface VariantList {
 
 export interface VariantListVariables {
   ids?: string[] | null;
+  channel?: string | null;
   countryCode?: CountryCode | null;
 }

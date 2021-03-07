@@ -4,6 +4,16 @@ All notable, unreleased changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- Handle Order confirmation at Thank You page - #956 by @mmarkusik
+- Add EditorJS renderer - #947 by @krzysztofwolski
+- New cart sidebar - #907 by @orzechdev
+- Support for multichannel - #937 by @AlicjaSzu
+- Add next.js to the Storefront - #955 by @piotrgrundas
+- Fixed image scaling in gallery and thumbnails - #959 by @MarekChoinski
+- Use only selection attributes in variant picker - #963 by @orzechdev
+- Drop deprecated `ProductVariant.isAvailable` field - #965 by @maarcingebala
+- Add eslint import sort - #979 by @pitorgrundas
+
 ## 2.11.0
 
 - Add product hyperlink in cart page - #745 by @konstantinoschristomanos
@@ -16,7 +26,7 @@ All notable, unreleased changes to this project will be documented in this file.
 - Do not use prettier on generated files - #773 by @dominik-zeglen
 - Add Eslint - #776 by @dominik-zeglen
 - Fix storybook config - #789 by @dominik-zeglen
-- Update SK to newest version - #795 by @dominik-zeglen
+- Update SDK to newest version - #795 by @dominik-zeglen
 - Use intl - #782 by @przlada
 - Download invoice for order - #790 by @orzechdev
 - Do not throw error if unsupported payment gateway found - #819 by @dominik-zeglen
@@ -39,7 +49,6 @@ All notable, unreleased changes to this project will be documented in this file.
 - Support for static URL - #721 by @marianoeramirez and @dominik-zeglen
 - Fix search crashing when displaying item with no category - #928 by @mmarkusik
 - Fix generating site map - #915 by @rboixaderg
-
 
 ## 2.10.4
 

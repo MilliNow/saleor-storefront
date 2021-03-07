@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -8,7 +9,7 @@
 
 export interface Article_page {
   __typename: "Page";
-  contentJson: any;
+  content: any | null;
   /**
    * The ID of the object.
    */
@@ -19,7 +20,7 @@ export interface Article_page {
   title: string;
 }
 
-export interface Article_shop_homepageCollection_backgroundImage {
+export interface Article_collection_backgroundImage {
   __typename: "Image";
   /**
    * The URL of the image.
@@ -27,21 +28,13 @@ export interface Article_shop_homepageCollection_backgroundImage {
   url: string;
 }
 
-export interface Article_shop_homepageCollection {
+export interface Article_collection {
   __typename: "Collection";
   /**
    * The ID of the object.
    */
   id: string;
-  backgroundImage: Article_shop_homepageCollection_backgroundImage | null;
-}
-
-export interface Article_shop {
-  __typename: "Shop";
-  /**
-   * Collection displayed on homepage.
-   */
-  homepageCollection: Article_shop_homepageCollection | null;
+  backgroundImage: Article_collection_backgroundImage | null;
 }
 
 export interface Article {
@@ -50,11 +43,12 @@ export interface Article {
    */
   page: Article_page | null;
   /**
-   * Return information about the shop.
+   * Look up a collection by ID.
    */
-  shop: Article_shop;
+  collection: Article_collection | null;
 }
 
 export interface ArticleVariables {
   slug: string;
+  channel?: string | null;
 }

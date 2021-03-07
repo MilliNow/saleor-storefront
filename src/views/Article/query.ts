@@ -4,21 +4,19 @@ import { TypedQuery } from "../../core/queries";
 import { Article, ArticleVariables } from "./gqlTypes/Article";
 
 const articleQuery = gql`
-  query Article($slug: String!) {
+  query Article($slug: String!, $channel: String) {
     page(slug: $slug) {
-      contentJson
+      content
       id
       seoDescription
       seoTitle
       slug
       title
     }
-    shop {
-      homepageCollection {
-        id
-        backgroundImage {
-          url
-        }
+    collection(slug: "featured-products", channel: $channel) {
+      id
+      backgroundImage {
+        url
       }
     }
   }

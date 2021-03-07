@@ -26,7 +26,6 @@ export const basicProductFragment = gql`
     name
     variants {
       id
-      isAvailable
       quantityAvailable(countryCode: $countryCode)
     }
     isAvailableForPurchase

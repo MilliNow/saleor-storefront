@@ -1,7 +1,7 @@
+import { useAuth } from "@saleor/sdk";
 import isEqual from "lodash/isEqual";
 import * as React from "react";
 
-import { useAuth } from "@saleor/sdk";
 import { Thumbnail } from "@components/molecules";
 
 import { TaxedMoney } from "../../@next/components/containers";

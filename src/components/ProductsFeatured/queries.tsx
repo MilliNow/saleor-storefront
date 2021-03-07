@@ -13,7 +13,7 @@ import {
 export const featuredProducts = gql`
   ${basicProductFragment}
   ${productPricingFragment}
-  query FeaturedProducts($channel: String) {
+  query FeaturedProducts($channel: String, $countryCode: CountryCode) {
     collection(slug: "featured-products", channel: $channel) {
       name
       products(first: 20) {

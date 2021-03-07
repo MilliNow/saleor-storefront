@@ -1,8 +1,8 @@
+import { useAuth } from "@saleor/sdk";
 import React from "react";
 
 import { TaxedMoney } from "@components/containers";
 import { Thumbnail } from "@components/molecules";
-import { useAuth } from "@saleor/sdk";
 
 import * as S from "./styles";
 import { IProps } from "./types";

@@ -1,4 +1,5 @@
 import { ProductList_products_edges_node as products_edges_node } from "@saleor/sdk/lib/queries/gqlTypes/ProductList";
+
 import { ProductDetails_product_variants } from "@temp/views/Product/gqlTypes/ProductDetails";
 
 type WithOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;

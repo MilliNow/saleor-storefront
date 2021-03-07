@@ -1,8 +1,8 @@
+import { useAuth } from "@saleor/sdk";
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
 import { Button } from "@components/atoms";
-import { useAuth } from "@saleor/sdk";
 
 export interface IAddToCartButton {
   disabled: boolean;

@@ -14,7 +14,7 @@
 !.tx
 !.env
 !.env.development
-!.env.production
+.env.production
 !.nvmrc
 
 dist

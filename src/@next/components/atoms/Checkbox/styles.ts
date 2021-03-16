@@ -34,6 +34,7 @@ export const Label = styled.label`
       width: 14px;
       height: 14px;
       display: inline-block;
+      border-radius: ${props => props.theme.tile.radius};
     }
 
     ${Checkbox}:hover & {

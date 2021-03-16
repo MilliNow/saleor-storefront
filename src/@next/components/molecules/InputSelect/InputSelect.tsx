@@ -32,11 +32,10 @@ export const InputSelect: React.FC<IProps> = ({
       border: state.menuIsOpen
         ? `1px solid ${secondaryColor}`
         : `1px solid ${borderColor}`,
-      borderRadius: 0,
+      borderRadius: customTheme.input.radius,
       boxShadow: 0,
       boxSizing: "border-box",
       margin: 0,
-      outline: state.menuIsOpen ? `1px solid ${secondaryColor}` : "",
       padding: "0.55rem 1rem",
     }),
     valueContainer: (provided: any) => {
@@ -57,7 +56,7 @@ export const InputSelect: React.FC<IProps> = ({
             {...{ customTheme, ...props }}
           />
           <InputLabel
-            labelBackground={customTheme.colors.light}
+            labelBackground={customTheme.colors.white}
             active={props.selectProps.menuIsOpen || props.hasValue}
           >
             {label}

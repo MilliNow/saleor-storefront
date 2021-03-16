@@ -10,6 +10,7 @@ export const Label = styled.label<{ checked: boolean }>`
   ${props => props.checked && `border: 2px solid #21125E;`}
   font-size: ${props => props.theme.typography.smallFontSize};
   cursor: pointer;
+  border-radius: ${props => props.theme.tile.radius};
 
   ${media.smallScreen`
     padding: 30px 20px;

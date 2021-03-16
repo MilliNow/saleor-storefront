@@ -4,7 +4,7 @@ import { Size } from "./types";
 
 const padding = {
   md: "0.9rem 3.7rem",
-  sm: "0.1rem 2rem",
+  sm: "0.5rem 2rem",
 };
 
 const fontSize = (fontSize: string, smallFontSize: string) => ({
@@ -21,6 +21,7 @@ export const Primary = styled.button<{
     props.theme.button.colors[props.color].background};
   padding: ${props => padding[props.size]};
   border: none;
+  border-radius: ${props => props.theme.button.radius};
   transition: 0.3s;
   outline: none;
   cursor: pointer;
@@ -56,10 +57,8 @@ export const Primary = styled.button<{
 `;
 
 export const Secondary = styled(Primary)`
-  box-shadow: inset 0px 0px 0px 3px
+  box-shadow: inset 0px 0px 0px 2px
     ${props => props.theme.button.colors.secondary.color};
-  border-left: 1px solid ${props => props.theme.button.colors.secondary.color};
-  border-right: 1px solid ${props => props.theme.button.colors.secondary.color};
 `;
 
 export const Text = styled.span<{ size: Size }>`

@@ -32,14 +32,11 @@ export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   border: 1px solid ${props => getEdgeColor(props)};
   color: ${props => getEdgeColor(props)};
-  outline: ${props =>
-    props.active ? `1px solid ${getEdgeColor(props)};` : "none"};
   transition: all 0.3s ease;
+  border-radius: ${props => props.theme.input.radius};
 
   &:hover {
     color: ${props => getEdgeColor(props, true)};
-    outline-width: ${props => (props.disabled ? 0 : 1)}px;
-    outline-style: solid;
     border-color: ${props => getEdgeColor(props, true)};
     outline-color: ${props => getEdgeColor(props, true)};
   }

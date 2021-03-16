@@ -18,7 +18,7 @@ const CheckoutAsGuest: React.FC<{
     </p>
     <Link href={checkoutUrl}>
       <a>
-        <Button testingContext="continueAsGuestButton">
+        <Button testingContext="continueAsGuestButton" className="no-skew">
           <FormattedMessage defaultMessage="Continue as a guest" />
         </Button>
       </a>

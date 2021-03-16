@@ -101,7 +101,7 @@ const PaymentGatewaysList: React.FC<IProps> = ({
           case PROVIDERS.STRIPE.label:
             return (
               <div key={index}>
-                <S.Tile checked={checked}>
+                <S.HiddenTile checked={checked}>
                   <Radio
                     data-test="checkoutPaymentGatewayStripeInput"
                     name="payment-method"
@@ -116,7 +116,7 @@ const PaymentGatewaysList: React.FC<IProps> = ({
                       {name}
                     </span>
                   </Radio>
-                </S.Tile>
+                </S.HiddenTile>
                 {checked && (
                   <StripePaymentGateway
                     config={config}

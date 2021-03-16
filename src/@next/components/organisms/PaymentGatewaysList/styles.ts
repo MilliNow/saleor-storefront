@@ -12,3 +12,7 @@ export const Tile = styled.label<{ checked: boolean }>`
   ${props => props.checked && `border: 2px solid #21125E;`}
   cursor: pointer;
 `;
+
+export const HiddenTile = styled.label<{ checked: boolean }>`
+  display: none;
+`;

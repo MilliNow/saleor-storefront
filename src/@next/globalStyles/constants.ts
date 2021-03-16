@@ -86,6 +86,11 @@ export const ultraBigFont = "6rem"; // 96px
 export const spacer = 1; // rem
 export const fieldSpacer = "1.875rem";
 
+// radius
+export const buttonRadius = "0.25rem";
+export const inputRadius = "0.25rem";
+export const tileRadius = "0.5rem";
+
 // breakpoints
 export const xxxLargeScreen = 1920;
 export const xxLargeScreen = 1600;

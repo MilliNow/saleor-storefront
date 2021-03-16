@@ -17,6 +17,7 @@ export const Title = styled.h3`
 export const DiscountField = styled.div`
   background-color: ${props => props.theme.colors.light};
   padding: 30px;
+  text-align: center;
 
   ${media.smallScreen`
     padding: 30px 20px;

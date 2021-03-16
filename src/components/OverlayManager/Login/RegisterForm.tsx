@@ -72,6 +72,7 @@ const RegisterForm: React.FC<{ hide: () => void }> = ({ hide }) => {
               <Button
                 testingContext="submitRegisterFormButton"
                 type="submit"
+                className="no-skew"
                 {...(loading && { disabled: true })}
               >
                 {loading

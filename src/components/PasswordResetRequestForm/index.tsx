@@ -57,6 +57,7 @@ const PasswordResetRequestForm: React.FC = () => {
                 <Button
                   testingContext="submit"
                   type="submit"
+                  className="no-skew"
                   {...(disableSubmit(loading, data) && { disabled: true })}
                 >
                   {buttonMessage(loading, data)}

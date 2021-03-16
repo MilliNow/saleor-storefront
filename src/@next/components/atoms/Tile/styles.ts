@@ -31,6 +31,7 @@ export const Wrapper = styled.div<WrapperProps>`
         color: ${props.theme.colors.secondary};
         align-items: center;
         justify-content: center;
+        border-radius: ${props => props.theme.tile.radius};
         :hover {
           cursor: pointer;
           color: ${props.theme.colors.white};

@@ -42,6 +42,7 @@ export const defaultTheme = {
       smallFontSize: "1rem",
       textTransform: "uppercase",
     },
+    radius: C.buttonRadius,
   },
   carousel: {
     carouselControlPadding: "0.2rem 0.5rem",
@@ -99,6 +100,7 @@ export const defaultTheme = {
      */
     labelFontSize: "0.75rem",
     selectMenuShadow: "0px 6px 10px 0px rgba(0, 0, 0, 0.15)",
+    radius: C.inputRadius,
   },
   link: {
     base: {
@@ -151,6 +153,7 @@ export const defaultTheme = {
     backgroundColor: C.grayLight,
     divisionLine: C.grayMedium,
     hoverBorder: C.blueDark,
+    radius: C.tileRadius,
   },
   typography: {
     baseFontFamily: C.baseFontFamily,
